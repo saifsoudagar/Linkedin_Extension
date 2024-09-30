@@ -1,0 +1,29 @@
+{
+    "manifest_version": 3,
+    "name": "Your Extension Name",
+    "version": "1.0",
+    "description": "A description of your extension",
+    "background": {
+        "service_worker": "background.ts"
+    },
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": "assets/ai-icon.svg"
+    },
+    "content_scripts": [{
+        "matches": ["https://www.linkedin.com/*"],
+        "js": ["content.ts"],
+        "css": ["content.css"]
+    }],
+    "web_accessible_resources": [{
+        "resources": [
+            "dist/bundle.ts",
+            "assets/ai-icon.svg",
+            "assets/PlaneIcon.svg",
+            "assets/RegenrateIcon.svg",
+            "assets/InertIcon.svg"
+        ],
+        "matches": ["https://www.linkedin.com/*"]
+    }],
+    "permissions": ["activeTab"]
+}
